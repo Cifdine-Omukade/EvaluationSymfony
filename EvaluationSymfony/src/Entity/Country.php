@@ -83,30 +83,32 @@ class Country
 
         return $this;
     }
-    public function getHealed()
+    public function getHealed() : int
     {
-        $totalHealed = 0;
+        $healed = 0;
         foreach($this->getStat() as $healed)
-        { $healed += $healed->getHealed ;
-        $totalHealed ++ ;}
-         return $totalHealed;
+        { $healed += $healed->getHealed() ;
+        
+        }
+        
+         return $healed;
         
     }
     public function getZombified()
     {
         $totalZombified = 0;
-        foreach( $this->getStat() as $zombified){
-        $zombified += $this->getZombified() ;
-        $totalZombified ++ ;}
+        foreach( $this->getStat() as $totalZombified){
+        $totalZombified += $this->getZombified() ;
+        }
         return $totalZombified;
     }
     public function getContaminated()
     {
         $totalContaminated = 0;
-        foreach( $this->getStat() as $contaminated)
+        foreach( $this->getStat() as $totalContaminated)
         {
-            $contaminated += $this->getContaminated() ;
-            $totalContaminated ++ ;
+            $totalContaminated += $this->getContaminated() ;
+            
             
         }
         return $totalContaminated;

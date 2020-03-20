@@ -2,13 +2,17 @@
 
 namespace App\Form;
 
+use App\Entity\Country;
 use App\Entity\Stat;
 use DateTime;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+
 
 class StatType extends AbstractType
 {
@@ -18,8 +22,11 @@ class StatType extends AbstractType
             ->add('contamined',NumberType::class)
             ->add('healed', NumberType::class)
             ->add('zombified', NumberType::class)
-            ->add('stat_date',DateTime::class)
-            ->add('country',TextType::class)
+            ->add('stat_date',DateTimeType::class)
+            ->add('country',EntityType::class,
+            ['class'=>Country::class,
+            'choice_label'=> 'name'
+            ])
         ;
     }
 

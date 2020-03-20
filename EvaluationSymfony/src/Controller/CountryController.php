@@ -60,6 +60,7 @@ class CountryController extends AbstractController
         $country = $countryRepository->find($country);
         $countryStat = $country->getStat($country);
         
+        
         return $this->render('country/show.html.twig', [
             'country' => $country,
             'stats' => $countryStat
