@@ -18,15 +18,20 @@ class AppController extends AbstractController
      */
     public function index(CountryRepository $countryRepository,StatRepository $statRepository)
     {
-        $country = $countryRepository->find($country);
+        
         $countries = $countryRepository->AlphabeticalOrder();
+        foreach($countries as $country)
+        {
+            $countryStat = $country->getStat($statRepository->MyFindBy($country));
+            return $countryStat;
+        }
         
         
-        $countryStat = $country->getStat($statRepository->MyFindBy($country));
+        
         return $this->render('app/index.html.twig', [
             'countries' => $countries,
             'stat' => $countryStat,
-            'country' => $country
+            
 
         ]);
     }
