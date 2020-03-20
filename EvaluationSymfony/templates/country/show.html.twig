@@ -17,7 +17,14 @@
             </tr>
             <tr>
                 <th>Stat</th>
-                <td>{{stat}}</td>
+                {% for stat in stats %}
+                <td>{{stat.id}}</td>
+                <td>{{stat.name}}</td>
+                <td>{{stat.contamination}}</td>
+                <td>{{stat.zombified}}</td>
+                <td>{{stat.healed}}</td>
+                <td>{{stat.stat_date}}</td>
+                {% endfor %}
             </tr>
         </tbody>
     </table>

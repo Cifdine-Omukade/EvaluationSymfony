@@ -18,6 +18,9 @@
                 <th>Id</th>
                 <th>Name</th>
                 <th>actions</th>
+                <th>Healed</th>
+                <th>Contaminated</th>
+                <th>Zombified</th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +32,9 @@
                     <a href="{{ path('country_show', {'id': country.id}) }}" class="btn-primary">Detail</a>
                     <a href="{{ path('country_edit', {'id': country.id}) }}" class="btn-danger">Editer</a>
                 </td>
+                <td>{{country.healed}}</td>
+                <td>{{country.contaminated}}</td>
+                <td>{{country.zombified}}</td>
             </tr>
             {% else %}
             <tr>

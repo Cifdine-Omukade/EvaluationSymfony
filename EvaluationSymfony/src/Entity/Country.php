@@ -80,4 +80,32 @@ class Country
 
         return $this;
     }
+    public function getHealed()
+    {
+        $totalHealed = 0;
+        foreach($this->getStat() as $healed)
+        { $healed += $healed->getHealed ;
+        $totalHealed ++ ;}
+         return $totalHealed;
+        
+    }
+    public function getZombified()
+    {
+        $totalZombified = 0;
+        foreach( $this->getStat() as $zombified){
+        $zombified += $this->getZombified() ;
+        $totalZombified ++ ;}
+        return $totalZombified;
+    }
+    public function getContaminated()
+    {
+        $totalContaminated = 0;
+        foreach( $this->getStat() as $contaminated)
+        {
+            $contaminated += $this->getContaminated() ;
+            $totalContaminated ++ ;
+            
+        }
+        return $totalContaminated;
+    }
 }
