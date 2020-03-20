@@ -24,14 +24,26 @@
                 <td>Date</td>
             </tr>
                 {% for stat in stats %}
+                {%  if stat.zombified > stat.healed %}
                 <tr>
                 <td>stat</td>
                 <td>{{stat.id}}</td>
                 
                 <td>{{stat.contamined}}</td>
-                <td>{{stat.zombified}}</td>
+                <td class="text-danger">{{stat.zombified}}</td>
                 <td>{{stat.healed}}</td>
                 <td>{{stat.statDate|date("m/d/Y")}}</td>
+                {% else %}
+                <tr>
+                    <td>stat</td>
+                    <td>{{stat.id}}</td>
+
+                    <td>{{stat.contamined}}</td>
+                    <td>{{stat.zombified}}</td>
+                    <td class="text-success">{{stat.healed}}</td>
+                    <td>{{stat.statDate|date("m/d/Y")}}</td>
+                    {% endif %}
+
                 {% endfor %}
             </tr>
         </tbody>
