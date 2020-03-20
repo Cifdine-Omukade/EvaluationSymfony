@@ -27,7 +27,7 @@
             
             <tr>
                 <td>{{ country.id }}</td>
-                <td>{{ country.name }}</td>
+                <td>{{ country.name|upper }}</td>
                 <td>
                     <a href="{{ path('country_show', {'id': country.id}) }}" class="btn-primary">Detail</a>
                     <a href="{{ path('country_edit', {'id': country.id}) }}" class="btn-danger">Editer</a>

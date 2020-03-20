@@ -22,6 +22,15 @@ class CountryRepository extends ServiceEntityRepository
     // /**
     //  * @return Country[] Returns an array of Country objects
     //  */
+    public function AlphabeticalOrder()
+    {
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.name', 'ASC')
+            ->getQuery()
+            ->getResult();
+        
+        
+    }
     /*
     public function findByExampleField($value)
     {
