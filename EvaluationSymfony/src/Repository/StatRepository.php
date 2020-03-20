@@ -18,11 +18,22 @@ class StatRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Stat::class);
     }
+    public function MyFindBy($value)
+    {
+        return $this->createQueryBuilder('b')
+            ->andWhere('b.id = :val')
+            ->setParameter('val', $value)
+            ->orderBy('b.stat_date', 'DESC')
+            ->setMaxResults(5)
+            ->getQuery()
+            ->getResult();
+    }
 
     // /**
     //  * @return Stat[] Returns an array of Stat objects
     //  */
     /*
+    
     public function findByExampleField($value)
     {
         return $this->createQueryBuilder('s')

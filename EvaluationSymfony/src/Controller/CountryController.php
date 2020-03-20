@@ -55,10 +55,11 @@ class CountryController extends AbstractController
     /**
      * @Route("/{id}", name="country_show", methods={"GET"}, requirements={"id"= "\d+"})
      */
-    public function show(Country $country,CountryRepository $countryRepository): Response
+    public function show(Country $country,CountryRepository $countryRepository,StatRepository $statRepository): Response
     {
         $country = $countryRepository->find($country);
-        $countryStat = $country->getStat($country);
+        $countryStat = $country->getStat($statRepository->MyFindBy($country));
+        
         
         
         return $this->render('country/show.html.twig', [

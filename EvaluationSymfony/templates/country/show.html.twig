@@ -17,13 +17,21 @@
             </tr>
             <tr>
                 <th>Stat</th>
+                <td>Id</td>
+                <td>Contamined</td>
+                <td>Zombified</td>
+                <td>Healed</td>
+                <td>Date</td>
+            </tr>
                 {% for stat in stats %}
+                <tr>
+                <td>stat</td>
                 <td>{{stat.id}}</td>
-                <td>{{stat.name}}</td>
-                <td>{{stat.contamination}}</td>
+                
+                <td>{{stat.contamined}}</td>
                 <td>{{stat.zombified}}</td>
                 <td>{{stat.healed}}</td>
-                <td>{{stat.stat_date}}</td>
+                <td>{{stat.statDate|date("m/d/Y")}}</td>
                 {% endfor %}
             </tr>
         </tbody>
